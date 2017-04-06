@@ -5,14 +5,20 @@
 
 h1 {
   text-align: left;
-  font-size: 36px;
+  font-size: 28px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 200;
-  color: #0078ab;
+  font-weight: 600;
+  color: #f89829;
   background: none;
   margin-top: 0;
-  padding-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  
 }
+
+
+
+
 
 h2 {
     font-family: 'Open Sans', sans-serif;
@@ -28,6 +34,10 @@ h3 {
     color: #0078ab;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
 }
 
 a:hover {
@@ -48,7 +58,7 @@ a:hover {
     position: fixed;
     font-family: 'Open Sans', sans-serif;
     overflow: auto;
-    background-color: #f89829;
+    background-color: #f89824;
     border-right: solid #f89829 thin;
 }
 
@@ -64,26 +74,31 @@ a:hover {
 .nav li a {
     display: block;
     border-bottom: 1px solid #ffffff;
-    color: #fff;
+    color: #333;
     padding: 18px 16px;
     text-decoration: none;
 
 }
 
 .nav li a i{
-  float:right;
+  float: right;
+  color: #FFF;
 }
+
+
 
 .nav li a.active {
-    background-color: #0078ab;
-    color: #fff;
+    background-color: transparent;
+    color: #444;
 }
 .nav li a:hover {
-    background-color: #0078ab;
-    color: white;
+    background-color: transparent;
 }
 
-.padtop {padding-top: 20px;}
+.padtop {
+    padding-top: 20px;
+
+}
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -95,6 +110,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     font-size: 16px;
     font-weight: 200;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .input {
@@ -103,6 +119,7 @@ input[type=text], input[type=password] {
   border-color: #f89829
   background: #e5e2e0;
 }
+
 .ppcc_container {
   border-style: black solid thin;
   /*margin-left: 50px;*/
@@ -117,6 +134,7 @@ input[type=text], input[type=password] {
    margin: 8px 0;
    border: none;
    font-family: 'Open Sans', sans-serif;
+   border-radius: 4px;
 }
 
 /* Add a hover effect for buttons */
@@ -130,12 +148,26 @@ input[type=text], input[type=password] {
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
     float: right;        /* adjust as needed */
-    color: #f89829;         /* adjust as needed */
+    color: #ffffff;         /* adjust as needed */
 }
 .panel-heading .accordion-toggle.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
+
+
+.panel-default .panel-heading {
+    background-color: #0078ab;
+}
+
+.panel-title {
+    color: #ffffff;
+}
+
+.panel-title a {
+    text-decoration: none;
+}
+
 
 
 /*Josh Styles*/
@@ -165,6 +197,9 @@ input[type=text], input[type=password] {
   margin-right: 1em;
   float: left;
   width: 47%;
+  font-weight: bold;
+  font-size: 11px;
+}
 }
 
 .left input {
@@ -180,6 +215,8 @@ input[type=text], input[type=password] {
   float: left;
   margin-left: 1em;
   width: 47%;
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .right input {
@@ -189,10 +226,21 @@ input[type=text], input[type=password] {
 	background-color: #e5e2e0;
 }
 
-.sample {
-  padding-left: 2em;
-  background-color: #e5e2e0;
+
+
+.sample  {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 200;
+    font-family: 'Open Sans', sans-serif;
+    color: #777;
 }
+
 
 /*CSS FOR ADD PROFILE BUTTONS*/
 .addProfileButton {
