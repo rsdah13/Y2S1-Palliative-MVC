@@ -3,6 +3,97 @@
     ViewBag.Title = "Medications";
     Layout = "~/Views/Shared/_Navigation.cshtml";
 }
-
+<div class="modal fade" id="med_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Medication Information</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">Medication Brand Name</div>
+                    <div class="col-md-7" id="name_brand"></div>
+                </div>
+             </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <h2>Medications</h2>
+<div id="medication_display"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+<script id="entry-template" type="text/x-handlebars-template">
+    <table class="table table-striped">
+        <tr>
+            <th>Name Brand</th>
+            <th>Dosage</th>
+            <th>Concentration</th>
+            <th>Frequency</th>
+            <th>Route</th>
+            <th>See More Info</th>
+        </tr>
+    {{#each .}}
+    <tr class="med_row">
+        <td>{{name_brand}}</td>
+        <td>{{dosage}}</td>
+        <td>{{concentration}}</td>
+        <td>{{frequency}}</td>
+        <td>{{route}}</td>
+        <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#med_modal" data-id={{id}}></i></td>
+    </tr>
+    {{/each}}
+    </table>
+</script>
+<script>
+
+    var medications = [
+        {   "id":"0",
+            "current": "false",
+            "name_brand": "Benadryl",
+            "generic_name": "Diphenhydramine",
+            "dosage": "25mg, 2 tsp",
+            "concentration": "12.5 mg/5ml",
+            "frequency": "every 6 hours as needed",
+            "route": "by mouth",
+            "reason": "pet allergies",
+            "prescribed_by": "Dr. Primary",
+            "pharmacy": "Rite Aid",
+            "start_date": "3/1/2017",
+            "end_date": "4/1/2017",
+            "interactions": "could lower seizure threshold",
+            "experienced_side_effects": "caused agitation",
+            "reason_stopped": "caused agitation",
+        },
+        {
+            "id":"1",
+            "current": "true",
+            "name_brand": "Gammagard",
+            "generic_name": "Immunoglobulin",
+            "dosage": "15g",
+            "concentration": "100 mg/ml",
+            "frequency": "every 4 weeks",
+            "route": "i.v.",
+            "reason": "replacement IgG",
+            "prescribed_by": "Dr. Immunologist",
+            "pharmacy": "Walgreen's Infusion Services",
+            "start_date": "1/1/2016",
+            "end_date": "",
+            "interactions": "could lower seizure threshold",
+            "experienced_side_effects": "itching, swelling, redness at site",
+            "reason_stopped": "",
+        }];
+
+    $().ready(function () {
+        var source = $("#entry-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(medications);
+        $("#medication_display").html(html);
+        $('i').click(function () {
+            console.log(medications[0].name_brand);
+            $('#name_brand').html(medications[0].name_brand);
+        })
+    });
+
+
+</script>
