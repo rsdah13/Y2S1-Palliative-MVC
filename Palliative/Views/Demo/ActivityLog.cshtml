@@ -4,42 +4,291 @@
     Layout = "~/Views/Shared/_Navigation.cshtml";
 }
 
+<div class="modal fade" id="appointment_visit_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Notes from appointment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">Notes:</div>
+                    <div class="col-md-11" id="notes"></div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div class="ppcc_container">
     <h1>Medical Visit Notes</h1>
 </div>
-<div class="ppcc_container">
-    <h2>Appointments / Meetings Log:</h2>
-    <form>
-        <input class="input" type="text" name="Call/Meeting" placeholder="Call/Meeting">
-        <input class="input" type="text" name="Date/Time" placeholder=" Date/Time ">
-        <input class="input" type="text" name="Name of Person / Agency" placeholder="Name of Person / Agency">
-        <input class="input" type="text" name="Contact Information" placeholder="Contact Information">
-        <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
-    </form>
-    <button class="button">Add <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
+<h2>Appointments / Meetings Log:</h2>
+<!--NEW GRID-->
+<div id="appointment_notes_display"></div>
+
+<script id="appointment_visit_template" type="text/x-handlebars-template">
+    <table class="table table-striped">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Meeting/Call</th>
+            <th>Name of Person or Agency</th>
+            <th>Contact Information</th>
+            <th>What was discussed</th>
+            <th>Notes</th>
+        </tr>
+        {{#each .}}
+        <tr class="med_row">
+            <td>{{date}}</td>
+            <td>{{time}}</td>
+            <td>{{meeting_type}}</td>
+            <td>{{person_agency_name}}</td>
+            <td>{{contact_info}}</td>
+            <td>{{discussed}}</td>
+            <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#appointment_visit_modal" data-id={{id}}></i></td>
+        </tr>
+        {{/each}}
+    </table>
+</script>
+<button class="button" data-toggle="modal" data-target="#appointmentsModal">Add Appointment <i class="fa fa-plus" aria-hidden="true" ></i></button><br /><br />
+
+<script>
+
+    var appointment_visit = [
+        {   "id":"0",
+            "current": "false",
+            "date": "11/12/16",
+            "time": "4:00PM",
+            "meeting_type": "Meeting",
+            "person_agency_name": "Children's Hospital",
+            "contact_info": "(412)555-5555",
+            "discussed": "blood test results",
+            "notes": "results came back slightly anemic. next test will be in a month to check iron levels",
+        },
+        {
+            "id":"1",
+            "current": "true",
+            "date": "03/20/17",
+            "time": "11:00AM",
+            "meeting_type": "Call",
+            "person_agency_name": "Dr. Johnson",
+            "contact_info": "(412)555-1234",
+            "discussed": "side effects of new medicince",
+            "notes": "continue medicatin for two more days, but keep track to see if side effects worsen.  Call doctor after 2 days",
+        }];
+
+    //Modular to show full medication info
+    $().ready(function () {
+        var source = $("#appointment_visit_template").html();
+        var template = Handlebars.compile(source);
+        var html = template(appointment_visit);
+        $("#appointment_notes_display").html(html);
+        $('i').click(function (e) {
+            idd = $(e.target).data("id");
+            //console.log(medications[0].name_brand);
+            if (idd in appointment_visit) {
+                $('#notes').html(appointment_visit[idd].notes);
+            }
+        })
+    });
+
+
+</script>
+
+<!--Add Appointment-->
+<div class="modal fade" id="appointmentsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Appointment</h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- <hr /> -->
+                <form>
+                    Date: <input class="input date_time" type="date" name="Date" placeholder="Date">
+                    Time: <input class="input date_time" type="time" name="Time" placeholder="Time"><br><br />
+                    <input class="input" type="radio" name="meeting_call" value="male" checked> Meeting 
+                    <input class="input" type="radio" name="meeting_call" value="female"> Call 
+                    <input class="input" type="text" name="Name of Person / Agency" placeholder="Name of Person / Agency">
+                    <input class="input" type="text" name="Contact Information" placeholder="Contact Information">
+                    <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
+                    <input class="input" type="text" height="400px" name="Notes" placeholder="Notes">
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+<!--HOSPITAL STAYS-->
+<div class="modal fade" id="hospital_stay_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Notes</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">Notes</div>
+                    <div class="col-md-9" id="hospitalNotes"></div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+        <h2>Hospital Stays</h2>
+        <!--NEW GRID-->
+
+        <div id="hospital_stay_display"></div>
+
+        <script id="hospital_stay_template" type="text/x-handlebars-template">
+            <table class="table table-striped">
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                    <th>Hospital Name</th>
+                    <th>Doctor/Specialist</th>
+                    <th>Notes</th>
+                </tr>
+                {{#each .}}
+                <tr class="med_row">
+                    <td>{{date}}</td>
+                    <td>{{time}}</td>
+                    <td>{{reason}}</td>
+                    <td>{{hospital_name}}</td>
+                    <td>{{doctor}}</td>
+                    <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#hospital_stay_modal" data-id={{id}}></i></td>
+                </tr>
+                {{/each}}
+            </table>
+        </script>
+        <button class="button" data-toggle="modal" data-target="#addHospitalStayModal">Add Hospital Stay <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
+
+        <script>
+
+            var hospitalstay = [
+                {
+                    "id": "0",
+                    "current": "false",
+                    "date": "09/08/16",
+                    "time": "2:00PM",
+                    "reason": "bone marrow transplant",
+                    "hospital_name": "UPMC Mercy",
+                    "doctor": "Dr. Cray",
+                    "hospitalNotes": "will keep for observation",
+                },
+                {
+                    "id": "1",
+                    "current": "true",
+                    "date": "01/25/17",
+                    "time": "09:00AM",
+                    "reason": "broken leg",
+                    "hospital_name": "West Penn",
+                    "doctor": "Dr. Saturn",
+                    "hospitalNotes": "check back after 4 weeks for physcial therapy",
+                }];
+
+            //Modular to show full medication info
+            $().ready(function () {
+                var source = $("#hospital_stay_template").html();
+                var template = Handlebars.compile(source);
+                var html = template(hospitalstay);
+                $("#hospital_stay_display").html(html);
+                $('i').click(function (e) {
+                    idd = $(e.target).data("id");
+                    //console.log(medications[0].name_brand);
+                    if (idd in hospitalstay) {
+                        $('#hospitalNotes').html(hospitalstay[idd].hospitalNotes);
+                    }
+                })
+            });
+
+
+        </script>
+
+    <!--Modal for more info-->
+    <div class="modal fade" id="addHospitalStayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Hospital Stay</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- <hr /> -->
+                    <form>
+                        Date: <input class="input date_time" type="date" name="Date" placeholder="Date">
+                        Time: <input class="input date_time" type="time" name="Time" placeholder="Time"><br><br />
+                        <input class="input" type="text" name="Reason for Admission" placeholder="Reason for Admission">
+                        <input class="input" type="text" name="Hospital Information" placeholder="Hospital Information">
+                        <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
+                        <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+<!--ER VISITS-->
+
 <div class="ppcc_container">
-    <h2>Hospital Stays:</h2>
-    <form>
-        <input class="input" type="text" name="Date of Admission" placeholder="Date of Admission">
-        <input class="input" type="text" name="Reason for Admission" placeholder="Reason for Admission">
-        <input class="input" type="text" name="Hospital Information" placeholder="Hospital Information">
-        <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
-        <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
-    </form>
-    <button class="button">Add <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
+    <h2>ER Visit</h2>
+    <!--NEW GRID-->
+
+
+    <button class="button" data-toggle="modal" data-target="#ERModal">Add ER Visit <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
 </div>
-<div class="ppcc_container">
-    <h2>ER Visits:</h2>
-    <form>
-        <input class="input" type="text" name="Date" placeholder="Date">
-        <input class="input" type="text" name="Hospital/Medical Facility" placeholder="Hospital/Medical Facility">
-        <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
-        Admitted?
-        <input type="radio" name="hospital stay" value="male" checked> Yes
-        <input type="radio" name="hospital stay" value="female"> No<br>
-        <input class="input" type="text" height="400px" name="Results" placeholder="Results / Comments">
-        <button class="button">Add <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
-    </form>
+
+<!--Modal for more info-->
+<div class="modal fade" id="ERModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add ER Visit</h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- <hr /> -->
+                <form>
+                    Date: <input class="input date_time" type="date" name="Date" placeholder="Date">
+                    Time: <input class="input date_time" type="time" name="Time" placeholder="Time"><br><br />
+                    Admitted?
+                    <input type="radio" name="hospital stay" value="male" checked> Yes
+                    <input type="radio" name="hospital stay" value="female"> No<br>
+                    <input class="input" type="text" name="Hospital/Medical Facility" placeholder="Hospital/Medical Facility">
+                    <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
+                    <input class="input" type="text" height="400px" name="Results" placeholder="Results / Comments">
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
