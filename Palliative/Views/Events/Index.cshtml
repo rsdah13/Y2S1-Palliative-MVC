@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Palliative.Models.EventModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.date + @item.event_type + @item.event_data + @item.created + @item.current</li>
+            }
+        </ul>
+
+    </div>
+</body>
+</html>
