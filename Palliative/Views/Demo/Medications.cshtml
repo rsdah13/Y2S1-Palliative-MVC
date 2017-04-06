@@ -14,6 +14,32 @@
                 <div class="row">
                     <div class="col-md-5">Medication Brand Name</div>
                     <div class="col-md-7" id="name_brand"></div>
+                    <div class="col-md-5">Medication Generic Name</div>
+                    <div class="col-md-7" id="generic_name"></div>
+                    <div class="col-md-5">Dosage</div>
+                    <div class="col-md-7" id="dosage"></div>
+                    <div class="col-md-5">Concentration</div>
+                    <div class="col-md-7" id="concentration"></div>
+                    <div class="col-md-5">Frequency</div>
+                    <div class="col-md-7" id="frequency"></div>
+                    <div class="col-md-5">Route</div>
+                    <div class="col-md-7" id="route"></div>
+                    <div class="col-md-5">Reason</div>
+                    <div class="col-md-7" id="reason"></div>
+                    <div class="col-md-5">Prescribed By</div>
+                    <div class="col-md-7" id="prescribed_by"></div>
+                    <div class="col-md-5">Pharmacy</div>
+                    <div class="col-md-7" id="pharmacy"></div>
+                    <div class="col-md-5">Start Date</div>
+                    <div class="col-md-7" id="start_date"></div>
+                    <div class="col-md-5">End Date</div>
+                    <div class="col-md-7" id="end_date"></div>
+                    <div class="col-md-5">Interactions</div>
+                    <div class="col-md-7" id="interactions"></div>
+                    <div class="col-md-5">Experienced Side Effects</div>
+                    <div class="col-md-7" id="experienced_side_effects"></div>
+                    <div class="col-md-5">Reason Stopped</div>
+                    <div class="col-md-7" id="reason_stopped"></div>
                 </div>
              </div>
         </div><!-- /.modal-content -->
@@ -77,7 +103,7 @@
             "prescribed_by": "Dr. Immunologist",
             "pharmacy": "Walgreen's Infusion Services",
             "start_date": "1/1/2016",
-            "end_date": "",
+            "end_date": "N/A",
             "interactions": "could lower seizure threshold",
             "experienced_side_effects": "itching, swelling, redness at site",
             "reason_stopped": "",
@@ -88,9 +114,25 @@
         var template = Handlebars.compile(source);
         var html = template(medications);
         $("#medication_display").html(html);
-        $('i').click(function () {
+        $('i').click(function (e) {
+            idd = $(e.target).data("id");
             //console.log(medications[0].name_brand);
-            $('#name_brand').html(medications[0].name_brand);
+            if (idd in medications) {
+                $('#name_brand').html(medications[idd].name_brand);
+                $('#generic_name').html(medications[idd].generic_name);
+                $('#dosage').html(medications[idd].dosage);
+                $('#concentration').html(medications[idd].concentration);
+                $('#frequency').html(medications[idd].frequency);
+                $('#route').html(medications[idd].route);
+                $('#reason').html(medications[idd].reason);
+                $('#prescribed_by').html(medications[idd].prescribed_by);
+                $('#pharmacy').html(medications[idd].pharmacy);
+                $('#start_date').html(medications[idd].start_date);
+                $('#end_date').html(medications[idd].end_date);
+                $('#interactions').html(medications[idd].interactions);
+                $('#experienced_side_effects').html(medications[idd].experienced_side_effects);
+                $('#reason_stopped').html(medications[idd].reason_stopped);
+            }
         })
     });
 
