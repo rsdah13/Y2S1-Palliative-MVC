@@ -130,12 +130,26 @@ input[type=text], input[type=password] {
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
     float: right;        /* adjust as needed */
-    color: #f89829;         /* adjust as needed */
+    color: #ffffff;         /* adjust as needed */
 }
 .panel-heading .accordion-toggle.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
+
+
+.panel-default .panel-heading {
+    background-color: #0078ab;
+}
+
+.panel-title {
+    color: #ffffff;
+}
+
+.panel-title a {
+    text-decoration: none;
+}
+
 
 
 /*Josh Styles*/
