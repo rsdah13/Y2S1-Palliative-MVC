@@ -8,279 +8,273 @@
     <h1>Profile</h1>
 </div>
 
-<div class="profileInput">
+<div class="profileInput"
+
+        <div class="panel-group" id="accordion">
 
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Child Information
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    <div class="left">
-                        Name:<br>
-                        <p class="sample">John Doe</p>
-                        Gender:<br>
-                        <p class="sample">Male</p>
-                    </div>
-                    <div class="right">
-                        Address:<br>
-                        <p class="sample">123 Maple St.</p>
-                        Birthday:<br>
-                        <p class="sample">April 1st, 2010</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+@*Child Information*@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Child Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="left">
+                                Parent:<br>
+                                <p class="sample">Amanda Doe</p>
+                                Relationship:<br>
+                                <p class="sample">Mother</p>
+                                Address:<br>
+                                <p class="sample">123 Maple St.</p>
+                            </div>
+                            <div class="right">
+                                Cell Phone:<br>
+                                <p class="sample">(412)555-5555</p>
+                                Work Phone:<br>
+                                <p class="sample">(412)555-1234</p>
+                                Allergies:<br>
+                                <p class="sample">Latex; Asprin</p>
+                                <br><br><br><br>
+                            </div>
+      </div>
+    </div>
+  </div>
+
+            @*Family Information*@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Family Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+          <div class="left">
+              Parent:<br>
+              <p class="sample">Amanda Doe</p>
+              Relationship:<br>
+              <p class="sample">Mother</p>
+              Address:<br>
+              <p class="sample">123 Maple St.</p>
+          </div>
+          <div class="right">
+              Cell Phone:<br>
+              <p class="sample">(412)555-5555</p>
+              Work Phone:<br>
+              <p class="sample">(412)555-1234</p>
+              <br><br><br><br>
+          </div>
+      </div>
+    </div>
+  </div>
+    
+
+            @*Medical Contact Information*@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Medical Contact Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="left">
+                                        Hospital<br>
+                                        <p class="sample">West Penn</p>
+                                        Pharmacy<br>
+                                        <p class="sample">Giant Eagle</p>
+                                        Police Department #<br>
+                                        <p class="sample">PPD</p>
+                                        Fire Department #<br>
+                                        <p class="sample">ACFD</p>
+                                    </div>
+                                    <div class="right">
+                                        Hospital Number<br>
+                                        <p class="sample">(412)555-2345</p>
+                                        Pharmacy Number<br>
+                                        <p class="sample">(412)555-3456</p>
+                                        Posion Control Number<br>
+                                        <p class="sample">(412)555-4567</p>
+                                        <br><br><br><br>
+                                    </div>
+      </div>
+    </div>
+  </div>
+    
+
+            @*School Information*@
+      <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          School Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+         <div class="left">
+                                        Name<br>
+                                        <p class="sample">John Doe</p>
+                                        Address<br>
+                                        <p class="sample">John Doe</p>
+                                        Nurse<br>
+                                        <p class="sample">John Doe</p>
+                                        Guidance Counselor<br>
+                                        <p class="sample">John Doe</p>
+                                        Transport Contact<br>
+                                        <p class="sample">John Doe</p>
+                                    </div>
+                                    <div class="right">
+                                        Phone Number<br>
+                                        <p class="sample">John Doe</p>
+                                        Principal<br>
+                                        <p class="sample">John Doe</p>
+                                        Teacher<br>
+                                        <p class="sample">John Doe</p>
+                                        Special Education Director<br>
+                                        <p class="sample">John Doe</p>
+                                        Homebound Contact<br>
+                                        <p class="sample">John Doe</p>
+                                    </div>
+      </div>
+    </div>
+  </div>
+
+            @*Hospital/Pharmacy Name*@
 
 
-        @*Family Information*@
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+          Hospitals/Pharmacies
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse">
+      <div class="panel-body">
+           <div class="left">
+                                        Hospital/Pharmacy Name<br>
+                                        <p class="sample">John Doe</p>
+                                        Address<br>
+                                        <p class="sample">John Doe</p>
+                                    </div>
+                                    <div class="right">
+                                        Hospital/Pharmacy Number
+                                        <p class="sample">John Doe</p>
+                                        <br><br><br><br>
+                                    </div>
+      </div>
+    </div>
+  </div>
+            @*Doctor/Specialists*@
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+          Doctors/Specialists
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="left">
+                                        Name<br>
+                                        <p class="sample">John Doe</p>
+                                        Address<br>
+                                        <p class="sample">John Doe</p>
+                                        Fax Number<br>
+                                        <p class="sample">John Doe</p>
+                                    </div>
+                                    <div class="right">
+                                        Phone Number<br>
+                                        <p class="sample">John Doe</p>
+                                        Email Address<br>
+                                        <p class="sample">John Doe</p>
+                                        Emergency Phone Number<br>
+                                        <p class="sample">John Doe</p>
+                                    </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Family Information
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    <div class="left">
-                        Parent:<br>
-                        <p class="sample">Amanda Doe</p>
-                        Relationship:<br>
-                        <p class="sample">Mother</p>
-                        Address:<br>
-                        <p class="sample">123 Maple St.</p>
-                    </div>
-                    <div class="right">
-                        Cell Phone:<br>
-                        <p class="sample">(412)555-5555</p>
-                        Work Phone:<br>
-                        <p class="sample">(412)555-1234</p>
-                        <br><br><br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @*Medical Contact Information*@
-
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Medical Contact Information
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    <div class="left">
-                        Hospital<br>
-                        <p class="sample">West Penn</p>
-                        Pharmacy<br>
-                        <p class="sample">Giant Eagle</p>
-                        Police Department #<br>
-                        <p class="sample">PPD</p>
-                        Fire Department #<br>
-                        <p class="sample">ACFD</p>
-                    </div>
-                    <div class="right">
-                        Hospital Number<br>
-                        <p class="sample">(412)555-2345</p>
-                        Pharmacy Number<br>
-                        <p class="sample">(412)555-3456</p>
-                        Posion Control Number<br>
-                        <p class="sample">(412)555-4567</p>
-                        <br><br><br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @*School Information*@
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        School Information
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
-                <div class="panel-body">
-                    <div class="left">
-                        Name<br>
-                        <p class="sample">John Doe</p>
-                        Address<br>
-                        <p class="sample">John Doe</p>
-                        Nurse<br>
-                        <p class="sample">John Doe</p>
-                        Guidance Counselor<br>
-                        <p class="sample">John Doe</p>
-                        Transport Contact<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                    <div class="right">
-                        Phone Number<br>
-                        <p class="sample">John Doe</p>
-                        Principal<br>
-                        <p class="sample">John Doe</p>
-                        Teacher<br>
-                        <p class="sample">John Doe</p>
-                        Special Education Director<br>
-                        <p class="sample">John Doe</p>
-                        Homebound Contact<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        @*Hospitals/Pharmacies*@
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFive">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Hospitals/Pharmacies
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
-                <div class="panel-body">
-                    <div class="left">
-                        Hospital/Pharmacy Name<br>
-                        <p class="sample">John Doe</p>
-                        Address<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                    <div class="right">
-                        Hospital/Pharmacy Number
-                        <p class="sample">John Doe</p>
-                        <br><br><br><br>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        @*Doctors/Specialists*@
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingSix">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        Doctors/Specialists
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
-                <div class="panel-body">
-                    <div class="left">
-                        Name<br>
-                        <p class="sample">John Doe</p>
-                        Address<br>
-                        <p class="sample">John Doe</p>
-                        Fax Number<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                    <div class="right">
-                        Phone Number<br>
-                        <p class="sample">John Doe</p>
-                        Email Address<br>
-                        <p class="sample">John Doe</p>
-                        Emergency Phone Number<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
-        
-
-
-        @*Transportation - Ambulence*@
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingSeven">
-                <h4 class="panel-title infoTitle">
-                    <a role="button" data-toggle="collapse" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                        Transportation - Ambulence
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeven">
-                <div class="panel-body">
-                    <div class="left">
-                        Company Name<br>
-                        <p class="sample">John Doe</p>
-                        Address<br>
-                        <p class="sample">John Doe</p>
-                        Email Address<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                    <div class="right">
-                        Phone<br>
-                        <p class="sample">John Doe</p>
-                        Fax<br>
-                        <p class="sample">John Doe</p>
-                        <br><br><br><br>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+            @*Transportation - Ambulance*@
+    
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+          Transportation - Ambulance
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSeven" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="left">
+                                        Company Name<br>
+                                        <p class="sample">John Doe</p>
+                                        Address<br>
+                                        <p class="sample">John Doe</p>
+                                        Email Address<br>
+                                        <p class="sample">John Doe</p>
+                                    </div>
+                                    <div class="right">
+                                        Phone<br>
+                                        <p class="sample">John Doe</p>
+                                        Fax<br>
+                                        <p class="sample">John Doe</p>
+                                        <br><br><br><br>
+                                    </div>
+      </div>
+    </div>
+  </div>
+    
             @*Transportation - Special Transportation*@
 
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingEight">
-                    <h4 class="panel-title infoTitle">
-                        <a role="button" data-toggle="collapse" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                            Transportation - Special Transportation
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEight">
-                    <div class="left">
-                        Company Name<br>
-                        <p class="sample">John Doe</p>
-                        Contact Person<br>
-                        <p class="sample">John Doe</p>
-                        Address<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                    <div class="right">
-                        Phone<br>
-                        <p class="sample">John Doe</p>
-                        Fax<br>
-                        <p class="sample">John Doe</p>
-                        Email Address<br>
-                        <p class="sample">John Doe</p>
-                    </div>
-                </div>
 
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+          Transportation - Special Transportation
+        </a>
+      </h4>
+    </div>
+    <div id="collapseEight" class="panel-collapse collapse">
+      <div class="panel-body">
+         <div class="left">
+                                    Company Name<br>
+                                    <p class="sample">John Doe</p>
+                                    Contact Person<br>
+                                    <p class="sample">John Doe</p>
+                                    Address<br>
+                                    <p class="sample">John Doe</p>
+                                </div>
+                                <div class="right">
+                                    Phone<br>
+                                    <p class="sample">John Doe</p>
+                                    Fax<br>
+                                    <p class="sample">John Doe</p>
+                                    Email Address<br>
+                                    <p class="sample">John Doe</p>
+                                </div>
+      </div>
+    </div>
+  </div>
+    
+</div>
 
-
-
-
-            </div>
+                        </div>
 
 
 
