@@ -109,6 +109,7 @@
             "reason_stopped": "",
         }];
 
+    //Modular to show full medication info
     $().ready(function () {
         var source = $("#entry-template").html();
         var template = Handlebars.compile(source);
@@ -138,3 +139,154 @@
 
 
 </script>
+
+<!--Add medication button-->
+<button type="button" class="btn button addButton" data-toggle="modal" data-target="#myModal">
+    Add/Edit
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Medication</h4>
+            </div>
+            <div class="modal-body">
+
+                <h2>Medication</h2>
+                <!-- <hr /> -->
+                <form>
+                    <input class="input" type="text" name="name_brand:" placeholder="Name Brand">
+                    <input class="input" type="text" name="generic_name:" placeholder="Generic Name">
+                    <input class="input" type="text" name="dosage" placeholder="Dosage">
+                    <input class="input" type="text" name="concentration" placeholder="Concentration">
+                    <input class="input" type="text" name="frequency" placeholder="Frequency">
+                    <input class="input" type="text" name="route" placeholder="Route">
+                    <input class="input" type="text" name="reason" placeholder="Reason">
+                    <input class="input" type="text" name="prescribed_by" placeholder="Prescribing Doctor">
+                    <input class="input" type="text" name="pharmacy" placeholder="Pharmacy">
+                    <input class="input" type="text" name="start_date" placeholder=" Start Date ">
+                    <input class="input" type="text" name="end_date" placeholder=" End Date ">
+                    <input class="input" type="text" name="interactions" placeholder="Interactions to other medications">
+                    <input class="input" type="text" name="experienced_side_effects" placeholder="Side effects experienced">
+                    <input class="input" type="text" name="reason_stopped" placeholder="Reason stopped medication">
+                    
+                    
+                    
+                    <input class="input" type="text" height="400px" name="Notes" placeholder="Notes">
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Pharmacy-->
+<div class="modal fade" id="pharmacy_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Pharmacy Information</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">Name</div>
+                    <div class="col-md-7" id="pharmacy_name"></div>
+                    <div class="col-md-5">Address</div>
+                    <div class="col-md-7" id="pharmacy_address"></div>
+                    <div class="col-md-5">Phone</div>
+                    <div class="col-md-7" id="pharmacy_phone"></div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<h2>Pharmacy</h2>
+<div id="pharmacy_display"></div>
+
+<script id="entry-template2" type="text/x-handlebars-template">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Number</th>
+        </tr>
+        {{#each .}}
+        <tr class="pharmacy_row">
+            <td>{{pharmacy_name}}</td>
+            <td>{{pharmacy_address}}</td>
+            <td>{{pharmacy_phone}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</script>
+
+<script>
+
+    var pharmacy = [
+        {
+            "id": "0",
+            "current": "true",
+            "pharmacy_name": "Duquesne University Pharmacy",
+            "pharmacy_address": "1860 Centre Ave, Pittsburgh, PA 15219",
+            "pharmacy_phone": "(412)246-0963",
+        },
+        {
+            "id": "1",
+            "current": "true",
+            "pharmacy_name": "CVS",
+            "pharmacy_address": "429 Smithfield St, Pittsburgh, PA 15222",
+            "pharmacy_phone": "(412)261-4846",
+        }];
+
+    //Modular to show full medication info AND just show the handlebar table
+    $().ready(function () {
+        var source = $("#entry-template2").html();
+        var template = Handlebars.compile(source);
+        var html = template(pharmacy);
+        $("#pharmacy_display").html(html);
+    })
+
+</script>
+
+<!--Add Pharmacy button-->
+<button type="button" class="btn button addButton" data-toggle="modal" data-target="#pharmacyModal">
+    Add/Edit
+</button>
+
+<div class="modal fade" id="pharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Pharmacy</h4>
+            </div>
+            <div class="modal-body">
+
+                <h2>Pharmacy</h2>
+                <!-- <hr /> -->
+                <form>
+                    <input class="input" type="text" name="pharmacy_name:" placeholder="Name">
+                    <input class="input" type="text" name="pharmacy_address:" placeholder="Address">
+                    <input class="input" type="text" name="pharmacy_phone" placeholder="Phone">
+
+                    <input class="input" type="text" height="400px" name="Notes" placeholder="Notes">
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
