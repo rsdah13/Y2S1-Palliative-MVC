@@ -4,5 +4,45 @@
     Layout = "~/Views/Shared/_Navigation.cshtml";
 }
 
-<h2>ActivityLog</h2>
 
+<div class="ppcc_container">
+    <h1>Medical Visit Notes</h1>
+</div>
+<div class="ppcc_container">
+    <h2>Appointments / Meetings Log:</h2>
+    <!-- <hr /> -->
+    <form>
+        <input class="input" type="text" name="Call/Meeting" placeholder="Call/Meeting">
+        <input class="input" type="text" name="Date/Time" placeholder=" Date/Time ">
+        <input class="input" type="text" name="Name of Person / Agency" placeholder="Name of Person / Agency">
+        <input class="input" type="text" name="Contact Information" placeholder="Contact Information">
+        <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
+    </form>
+    <button class="button">Add <i class="fa fa-plus" aria-hidden="true"></i></button>
+</div>
+<div class="ppcc_container">
+    <h3>Hospital Stays:</h3>
+    <!-- <hr /> -->
+    <form>
+        <input class="input" type="text" name="Date of Admission" placeholder="Date of Admission">
+        <input class="input" type="text" name="Reason for Admission" placeholder="Reason for Admission">
+        <input class="input" type="text" name="Hospital Information" placeholder="Hospital Information">
+        <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
+        <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
+    </form>
+    <button class="button">Add <i class="fa fa-plus" aria-hidden="true"></i></button>
+</div>
+<div class="ppcc_container">
+    <h2>ER Visits:</h2>
+    <!-- <hr /> -->
+    <form>
+        <input class="input" type="text" name="Date" placeholder="Date">
+        <input class="input" type="text" name="Hospital/Medical Facility" placeholder="Hospital/Medical Facility">
+        <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
+        Admitted?
+        <input type="radio" name="hospital stay" value="male" checked> Yes
+        <input type="radio" name="hospital stay" value="female"> No<br>
+        <input class="input" type="text" height="400px" name="Results" placeholder="Results / Comments">
+        <button class="button">Add <i class="fa fa-plus" aria-hidden="true"></i></button>
+    </form>
+</div>
