@@ -26,10 +26,16 @@ h3 {
     font-weight: 200;
     font-size: 18px;
     color: #0078ab;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .main{
-    padding-left: 300px;
+    padding-left: 330px;
     margin-bottom:50px;
 }
 
@@ -99,7 +105,7 @@ input[type=text], input[type=password] {
 }
 .ppcc_container {
   border-style: black solid thin;
-  margin-left: 50px;
+  /*margin-left: 50px;*/
   width: 50%;
 }
 
@@ -118,12 +124,24 @@ input[type=text], input[type=password] {
    opacity: 0.8;
 }
 
+/* Accordion Styles */
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: #f89829;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
 
 
 /*Josh Styles*/
 .profileInput {
-  padding-top: 25px;
-  padding-left: 50px;
+  /*padding-top: 25px;*/
+  /*padding-left: 30px;*/
   width: 80%;
   height:75%;
   font-family: 'Open Sans', sans-serif;
@@ -190,7 +208,7 @@ input[type=text], input[type=password] {
     }
 
     .main{
-    padding-left: 250px;
+    padding-left: 270px;
     }
 
     .ppcc_container{
