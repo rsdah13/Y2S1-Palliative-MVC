@@ -1,4 +1,3 @@
-﻿
 @{
     ViewBag.Title = "Medications";
     Layout = "~/Views/Shared/_Navigation.cshtml";
@@ -46,6 +45,8 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <h1>Medications</h1>
+<h2><i class="fa fa-heartbeat" aria-hidden="true"></i>
+ Current Medications</h2>
 <div id="medication_display"></div>
 
 <script id="entry-template" type="text/x-handlebars-template">
@@ -171,9 +172,9 @@
                     <input class="input" type="text" name="interactions" placeholder="Interactions to other medications">
                     <input class="input" type="text" name="experienced_side_effects" placeholder="Side effects experienced">
                     <input class="input" type="text" name="reason_stopped" placeholder="Reason stopped medication">
-                    
-                    
-                    
+
+
+
                     <input class="input" type="text" height="400px" name="Notes" placeholder="Notes">
                 </form>
 
@@ -209,7 +210,8 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<h2>Pharmacy</h2>
+<h2><i class="fa fa-medkit" aria-hidden="true"></i>
+ Pharmacy</h2>
 <div id="pharmacy_display"></div>
 
 <script id="entry-template2" type="text/x-handlebars-template">
@@ -290,3 +292,87 @@
     </div>
 </div>
 
+<!--Pharmacy-->
+<div class="modal fade" id="pharmacy_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Pharmacy Information</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">Name</div>
+                    <div class="col-md-7" id="pharmacy_name"></div>
+                    <div class="col-md-5">Address</div>
+                    <div class="col-md-7" id="pharmacy_address"></div>
+                    <div class="col-md-5">Phone</div>
+                    <div class="col-md-7" id="pharmacy_phone"></div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<h2><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Medical Allergies</h2>
+<div id="allergy_display"></div>
+
+<script id="allergy_template" type="text/x-handlebars-template">
+    <table class="table table-striped">
+        <tr>
+            <th>Allergy</th>
+        </tr>
+        {{#each .}}
+        <tr class="allergy_row">
+            <td>{{allergy_name}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</script>
+
+<script>
+
+    var allergy = [
+        {
+            "id": "0",
+            "current": "true",
+            "allergy_name": "Naproxin"
+        },
+        {
+            "id": "1",
+            "current": "true",
+            "allergy_name": "Ibuprofen",
+        }];
+
+    //Modular to show full medication info AND just show the handlebar table
+    $().ready(function () {
+        var source = $("#allergy_template").html();
+        var template = Handlebars.compile(source);
+        var html = template(allergy);
+        $("#allergy_display").html(html);
+    })
+
+</script>
+
+<!--Add Allergy button-->
+<button type="button" class="btn button addButton" data-toggle="modal" data-target="#allergyModal">
+    Add/Edit
+</button>
+
+<!--Pharmacy-->
+<div class="modal fade" id="allergy_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Allergy Information</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">Name</div>
+                    <div class="col-md-7" id="allergy_name"></div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
