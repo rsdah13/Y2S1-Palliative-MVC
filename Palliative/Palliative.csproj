@@ -203,6 +203,8 @@
     <Content Include="Content\images\boy.jpg" />
     <Content Include="Content\images\calstill.png" />
     <Content Include="Content\images\favicons\favicon.ico" />
+    <Content Include="Content\images\home-care-book-2.jpg" />
+    <Content Include="Content\images\home-care-book.jpg" />
     <Content Include="Content\images\PPCC-Logo-Header.png" />
     <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
