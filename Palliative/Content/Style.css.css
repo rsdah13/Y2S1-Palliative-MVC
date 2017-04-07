@@ -1,39 +1,17 @@
 ﻿* {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
-}
-
-body{
-    font-family: 'Open Sans', sans-serif;
 }
 
 
 h1 {
   text-align: left;
-  font-size: 28px;
+  font-size: 36px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  color: #f89829;
+  font-weight: 200;
+  color: #0078ab;
   background: none;
   margin-top: 0;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  
-}
-
-
-.active {
-background-color: #0078ab !important;  
-font-weight: bolder;   
-}
-
-.active a {
-    color: #FFF !important;
-}
-
-
-.nav_color_alternator {
-    background-color:#f9ad50;
+  padding-top: 20px;
 }
 
 h2 {
@@ -50,10 +28,6 @@ h3 {
     color: #0078ab;
     margin-top: 0;
     margin-bottom: 0;
-}
-
-p {
-    font-family: 'Open Sans', sans-serif;
 }
 
 a:hover {
@@ -74,7 +48,7 @@ a:hover {
     position: fixed;
     font-family: 'Open Sans', sans-serif;
     overflow: auto;
-    background-color: #f89824;
+    background-color: #f89829;
     border-right: solid #f89829 thin;
 }
 
@@ -90,74 +64,26 @@ a:hover {
 .nav li a {
     display: block;
     border-bottom: 1px solid #ffffff;
-    color: #333;
+    color: #fff;
     padding: 18px 16px;
     text-decoration: none;
 
 }
 
 .nav li a i{
-  float: right;
-  color: #FFF;
+  float:right;
 }
-
-
 
 .nav li a.active {
-    background-color: transparent;
+    background-color: #0078ab;
+    color: #fff;
 }
-
 .nav li a:hover {
-    background-color: transparent;
+    background-color: #0078ab;
+    color: white;
 }
 
-.padtop {
-    padding-top: 20px;
-
-}
-
-/*Home Page Styles*/
-.todo {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.todo th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-family: 'Open Sans', sans-serif;
-    color: #777;
-}
-
-.todo th {
-    padding-top: 0;
-}
-
-.fa-star-o {
-  color: #f89829;
-}
-
-.fa-star {
-  color: #f89829;
-}
-
-.fa-circle-thin {
-  color: #0078ab;
-}
-
-.fa-check-circle-o {
-  color: #777777;
-}
-
-.fa-check-circle {
-  color: #888;
-}
-
-.fa-pencil {
-  color: #888;
-}
-
+.padtop {padding-top: 20px;}
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -169,7 +95,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     font-size: 16px;
     font-weight: 200;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .input {
@@ -178,7 +103,6 @@ input[type=text], input[type=password] {
   border-color: #f89829
   background: #e5e2e0;
 }
-
 .ppcc_container {
   border-style: black solid thin;
   /*margin-left: 50px;*/
@@ -193,7 +117,6 @@ input[type=text], input[type=password] {
    margin: 8px 0;
    border: none;
    font-family: 'Open Sans', sans-serif;
-   border-radius: 4px;
 }
 
 /* Add a hover effect for buttons */
@@ -207,27 +130,23 @@ input[type=text], input[type=password] {
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
     float: right;        /* adjust as needed */
-    color: #ffffff;         /* adjust as needed */
+    color: white;         /* adjust as needed */
 }
 .panel-heading .accordion-toggle.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
-
-
 .panel-default .panel-heading {
     background-color: #0078ab;
 }
 
 .panel-title {
-    color: #ffffff;
+    color: white;
 }
 
-.panel-title a {
+.panel-title a{
     text-decoration: none;
 }
-
-
 
 /*Josh Styles*/
 .profileInput {
@@ -256,9 +175,6 @@ input[type=text], input[type=password] {
   margin-right: 1em;
   float: left;
   width: 47%;
-  font-weight: bold;
-  font-size: 11px;
-}
 }
 
 .left input {
@@ -274,8 +190,6 @@ input[type=text], input[type=password] {
   float: left;
   margin-left: 1em;
   width: 47%;
-  font-weight: bold;
-  font-size: 11px;
 }
 
 .right input {
@@ -285,28 +199,9 @@ input[type=text], input[type=password] {
 	background-color: #e5e2e0;
 }
 
-
-
-.sample  {
-    width: 100%;
-    padding: 12px 12px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-weight: 200;
-    font-family: 'Open Sans', sans-serif;
-    color: #777;
-}
-
-.calendar {
-    width: 70%;
-    height: auto;
-    padding: 12px 12px;
-    margin: 8px 0;
-border: 1px solid #ccc;
-
+.sample {
+  padding-left: 2em;
+  background-color: #e5e2e0;
 }
 
 /*CSS FOR ADD PROFILE BUTTONS*/
