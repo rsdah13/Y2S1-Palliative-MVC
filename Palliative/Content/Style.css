@@ -334,3 +334,8 @@ border: 1px solid #ccc;
 .clickable {
     cursor: pointer;
 }
+
+.date_time {
+    border: none;
+    border-bottom-color: #F89829;
+}
