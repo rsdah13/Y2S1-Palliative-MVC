@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Navigation.cshtml";
 }
 
+<script>$("#activitylogID").addClass("active")</script>
+
+
 <div class="modal fade" id="appointment_visit_modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -24,7 +27,8 @@
 <div class="ppcc_container">
     <h1>Medical Visit Notes</h1>
 </div>
-<h2>Appointments / Meetings Log:</h2>
+<h2><i class="fa fa-list-ul" aria-hidden="true"></i>
+ Appointments / Meetings Log:</h2>
 <!--NEW GRID-->
 <div id="appointment_notes_display"></div>
 
@@ -147,7 +151,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-        <h2>Hospital Stays</h2>
+        <h2><i class="fa fa-hospital-o" aria-hidden="true"></i> Hospital Stays</h2>
         <!--NEW GRID-->
 
         <div id="hospital_stay_display"></div>
@@ -253,7 +257,7 @@
 <!--ER VISITS-->
 
 <div class="ppcc_container">
-    <h2>ER Visit</h2>
+    <h2><i class="fa fa-ambulance" aria-hidden="true"></i> ER Visit</h2>
     <!--NEW GRID-->
 
 
