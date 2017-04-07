@@ -4,7 +4,197 @@
     Layout = "~/Views/Shared/_Navigation.cshtml";
 }
 
+<<<<<<< HEAD
 <!--<script>$("#indexID").addClass("active")</script>-->
+=======
+
+ <style>
+        .todo {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            .todo th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                font-family: 'Open Sans', sans-serif;
+                color: #777;
+            }
+
+            .todo th {
+                padding-top: 0;
+            }
+
+        .fa-star-o {
+            color: #f89829;
+        }
+
+        .fa-star {
+            color: #f89829;
+        }
+
+        .fa-circle-thin {
+            color: #0078ab;
+        }
+
+        .fa-check-circle-o {
+            color: #777777;
+        }
+
+        .fa-check-circle {
+            color: #888;
+        }
+
+        .fa-pencil {
+            color: #888;
+        }
+
+        .nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            height: 100%;
+            position: fixed;
+            font-family: 'Open Sans', sans-serif;
+            overflow: auto;
+            background-color: #f89829;
+            border-right: solid #f89829 thin;
+        }
+
+            .nav li a {
+                display: block;
+                border-bottom: 1px solid #ffffff;
+                color: #fff;
+                padding: 18px 16px;
+                text-decoration: none;
+            }
+
+                .nav li a i {
+                    float: right;
+                }
+
+                .nav li a.active {
+                    background-color: #0078ab;
+                    color: #fff;
+                }
+
+                .nav li a:hover {
+                    background-color: #0078ab;
+                    color: white;
+                }
+
+        .padtop {
+            padding-top: 20px;
+        }
+
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 200;
+        }
+
+        .input {
+            border-style: none;
+            border-bottom: solid;
+            border-color: #f89829 background: #e5e2e0;
+        }
+
+        .container {
+            border-style: black solid thin;
+            margin-left: 100px;
+            width: 50%;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1>Quick Week Overview</h1>
+    </div>
+    <div class="container">
+        <h2>Appointments Today</h2>
+
+        <table class="todo">
+            <tr>
+                <th style="width:5%"></th>
+                <th style="width:30%"></th>
+                <th style="width:65%"></th>
+            </tr>
+            <tr>
+                <td><i class="fa fa-star-o" aria-hidden="true"></i></td>
+                <td><strong>10:00 am</strong></td>
+                <td>Dr. Potoka - Children's Hospital</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-star-o" aria-hidden="true"></i></td>
+                <td><strong>10:00 am</strong></td>
+                <td>Dr. Kingsley Gittes - Children's Hospital</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-star-o" aria-hidden="true"></i></td>
+                <td><strong>3:00 pm</strong></td>
+                <td>Physical Therapy - Home</td>
+            </tr>
+        </table>
+        <br /> <br />
+    </div>
+
+
+    <div class="container">
+        <h2>To-Do This Week</h2>
+        <table class="todo">
+            <tr>
+                <th style="width:5%"></th>
+                <th style="width:30%"></th>
+                <th style="width:65%"></th>
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle-thin" aria-hidden="true"></i></td>
+                <td><strong>Refill</strong></td>
+                <td>Enoxaparin <br /> Wallgreen's - 412-234-5678</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle-thin" aria-hidden="true"></i></td>
+                <td><strong>Refill</strong></td>
+                <td>Bumetanide <br /> Wallgreen's - 412-234-5678</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle-thin" aria-hidden="true"></i></td>
+                <td><strong>Call</strong></td>
+                <td>Schedule Appt. <br />Dr. Jefferson - 412-123-7828</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle-thin" aria-hidden="true"></i></td>
+                <td><strong>Appt</strong></td>
+                <td>1:00pm 4/8/17<br />Shadyside Hospital</td>
+            </tr>
+        </table>
+        <br /> <br />
+    </div>
+
+    <div class="container">
+        <h2>Notes</h2>
+        <table class="todo">
+            <tr>
+                <th style="width:100%"></th>
+            </tr>
+            <tr>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit  dolor in reprehenderit in voluptate.</td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+
+>>>>>>> ff009d58d79e4fcc5c71679db3c60733abef7a84
 
 <div class="container">
     <h1>Quick Week Overview</h1>
