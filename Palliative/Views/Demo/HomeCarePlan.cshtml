@@ -8,3 +8,95 @@
 
 <h1>Home Event Log</h1>
 
+<div id="home_display"></div>
+
+<!--draws a table to display ER visits-->
+<script id="home_template" type="text/x-handlebars-template">
+    <table class="table table-striped">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Description of Event</th>
+        </tr>
+        {{#each .}}
+        <tr class="med_row">
+            <td>{{home_date}}</td>
+            <td>{{home_time}}</td>
+            <td>{{what_happened}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</script>
+
+<!--makes JSON and fake input for now-->
+<script>
+    var home_log = [
+        {
+            "id": "0",
+            "current": "false",
+            "home_date": "12/28/16",
+            "home_time": "6:30PM",
+            "what_happened": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a malesuada eros, sit amet iaculis ex. Etiam posuere mi orci.",
+        },
+        {
+            "id": "1",
+            "current": "false",
+            "home_date": "12/28/16",
+            "home_time": "9:00PM",
+            "what_happened": "Lorem ipsum dolor sit amet, admodum expetendis no eam. Illum nemore euripidis nec ei. Mea id unum affert, iusto eirmod appetere ut pri, duo nisl gubergren ut. Brute indoctum per at, invenire salutandi ea sed, habeo volumus pro ea. Per te omnium sapientem ocurreret. Eum volumus appetere tacimates te.Cum enim reque aeque.",
+        },
+        {
+            "id": "2",
+            "current": "false",
+            "home_date": "01/02/17",
+            "home_time": "10:24AM",
+            "what_happened": "Lorem ipsum dolor sit amet, vis omittam intellegat cu, pri nibh propriae persecuti et. Ad quis detracto eum, ex clita labitur sanctus vix. Ad ridens eripuit numquam duo, eu vel sint legimus. Consetetur reprimique ex.",
+        },
+        {
+            "id": "3",
+            "current": "false",
+            "home_date": "01/02/17",
+            "home_time": "01:18PM",
+            "what_happened": "Lorem ipsum dolor sit amet, falli ceteros deseruisse ad usu, te vix semper definitionem. Audiam appetere gloriatur an sed. Ignota animal ne mea. Pro ancillae maiestatis an, mel ut modo placerat. Molestie dignissim id ius. Clita impedit expetenda eum in.",
+        },
+        {
+            "id": "4",
+            "current": "false",
+            "home_date": "01/17/17",
+            "home_time": "3:47PM",
+            "what_happened": "Lorem ipsum dolor sit amet, et nibh recteque mea, ad nec odio ipsum oblique. Ne exerci disputando eos, aliquam facilisis nam ei.",
+        }];
+
+    //Modular to show full medication info
+    $().ready(function () {
+        var source = $("#home_template").html();
+        var template = Handlebars.compile(source);
+        var html = template(home_log);
+        $("#home_display").html(html);
+    });
+</script>
+
+<button class="button" data-toggle="modal" data-target="#homeModal"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp Add Event </button><br /><br />
+
+<!--Modal for more info-->
+<div class="modal fade" id="homeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Home Event</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    Date: <input class="input date_time" type="date" name="home_date" placeholder="Date">
+                    Time: <input class="input date_time" type="time" name="home_time" placeholder="Time"><br><br />
+                    <input class="input" type="text" height="400px" name="what_happened" placeholder="Describe what happened">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
