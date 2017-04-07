@@ -18,7 +18,7 @@ h1 {
 
 
 .active {
-background-color: #0078ab;  
+background-color: #0078ab !important;  
 font-weight: bolder;   
 }
 
