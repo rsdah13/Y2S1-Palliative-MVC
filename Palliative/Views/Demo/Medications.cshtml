@@ -65,12 +65,14 @@
         </tr>
     {{#each .}}
     <tr class="med_row">
+        {{#if current}}
         <td>{{name_brand}}</td>
         <td>{{dosage}}</td>
         <td>{{concentration}}</td>
         <td>{{frequency}}</td>
         <td>{{route}}</td>
         <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#med_modal" data-id={{id}}></i></td>
+        {{/if}}
     </tr>
     {{/each}}
     </table>
@@ -79,7 +81,7 @@
 
     var medications = [
         {   "id":"0",
-            "current": "false",
+            "current": false,
             "name_brand": "Benadryl",
             "generic_name": "Diphenhydramine",
             "dosage": "25mg, 2 tsp",
@@ -97,7 +99,7 @@
         },
         {
             "id":"1",
-            "current": "true",
+            "current": true,
             "name_brand": "Gammagard",
             "generic_name": "Immunoglobulin",
             "dosage": "15g",
@@ -190,6 +192,43 @@
         </div>
     </div>
 </div>
+
+<h2>
+    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+    Discontinued Medications
+</h2>
+<div id="disc_medication_display"></div>
+
+<script id="disc_meds" type="text/x-handlebars-template">
+    <table class="table table-striped">
+        <tr>
+            <th>Name Brand</th>
+            <th>Dosage</th>
+            <th>Concentration</th>
+            <th>Experienced Side Effects</th>
+            <th>Reason Stopped</th>
+        </tr>
+        {{#each .}}
+        <tr class="med_row">
+            {{#unless current}}
+            <td>{{name_brand}}</td>
+            <td>{{dosage}}</td>
+            <td>{{concentration}}</td>
+            <td>{{experienced_side_effects}}</td>
+            <td>{{reason_stopped}}</td>
+            {{/unless}}
+        </tr>
+        {{/each}}
+    </table>
+</script>
+<script>
+    $().ready(function () {
+        var source = $("#disc_meds").html();
+        var template = Handlebars.compile(source);
+        var html = template(medications);
+        $("#disc_medication_display").html(html);
+    });
+    </script>
 
 
 <!--Pharmacy-->
@@ -348,7 +387,7 @@
             "allergy_name": "Ibuprofen",
         }];
 
-    //Modular to show full medication info AND just show the handlebar table
+    //Modal to show full medication info AND just show the handlebar table
     $().ready(function () {
         var source = $("#allergy_template").html();
         var template = Handlebars.compile(source);
