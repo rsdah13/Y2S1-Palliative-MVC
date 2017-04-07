@@ -253,34 +253,9 @@
 
     
 
-<div id="hospital_stay_display"></div>
-
-<script id="hospital_stay_template" type="text/x-handlebars-template">
-    <table class="table table-striped">
-        <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Reason</th>
-            <th>Hospital Name</th>
-            <th>Doctor/Specialist</th>
-            <th>Notes</th>
-        </tr>
-        {{#each .}}
-        <tr class="med_row">
-            <td>{{date}}</td>
-            <td>{{time}}</td>
-            <td>{{reason}}</td>
-            <td>{{hospital_name}}</td>
-            <td>{{doctor}}</td>
-            <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#hospital_stay_modal" data-id={{id}}></i></td>
-        </tr>
-        {{/each}}
-    </table>
-</script>
-<button class="button" data-toggle="modal" data-target="#addHospitalStayModal">Add Hospital Stay <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
 
 
-<div class="ppcc_container">
+
     <h2><i class="fa fa-ambulance" aria-hidden="true"></i> ER Visit</h2>
     <!--NEW GRID-->
     <script>
