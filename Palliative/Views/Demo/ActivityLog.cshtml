@@ -51,12 +51,12 @@
             <td>{{person_agency_name}}</td>
             <td>{{contact_info}}</td>
             <td>{{discussed}}</td>
-            <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#appointment_visit_modal" data-id={{id}}></i></td>
+            <td><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="modal" data-target="#appointment_visit_modal" data-id={{id}}></i></td>
         </tr>
         {{/each}}
     </table>
 </script>
-<button class="button" data-toggle="modal" data-target="#appointmentsModal">Add Appointment <i class="fa fa-plus" aria-hidden="true" ></i></button><br /><br />
+<button class="button" data-toggle="modal" data-target="#appointmentsModal"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp Add Appointment </button><br /><br />
 
 <script>
 
@@ -173,12 +173,12 @@
                     <td>{{reason}}</td>
                     <td>{{hospital_name}}</td>
                     <td>{{doctor}}</td>
-                    <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#hospital_stay_modal" data-id={{id}}></i></td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="modal" data-target="#hospital_stay_modal" data-id={{id}}></i></td>
                 </tr>
                 {{/each}}
             </table>
         </script>
-        <button class="button" data-toggle="modal" data-target="#addHospitalStayModal">Add Hospital Stay <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
+        <button class="button" data-toggle="modal" data-target="#addHospitalStayModal"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp Add Hospital Stay </button><br /><br />
 
         <script>
 
@@ -394,7 +394,7 @@
     });
 </script>
 
-<button class="button" data-toggle="modal" data-target="#ERModal">Add ER Visit <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
+<button class="button" data-toggle="modal" data-target="#ERModal"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp Add ER Visit </button><br /><br />
 
 <!--Modal for more info-->
 <div class="modal fade" id="ERModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
