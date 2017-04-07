@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Navigation.cshtml";
 }
 
+<script>$("#activitylogID").addClass("active")</script>
+
+
 <div class="modal fade" id="appointment_visit_modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -24,7 +27,8 @@
 <div class="ppcc_container">
     <h1>Medical Visit Notes</h1>
 </div>
-<h2>Appointments / Meetings Log:</h2>
+<h2><i class="fa fa-list-ul" aria-hidden="true"></i>
+ Appointments / Meetings Log:</h2>
 <!--NEW GRID-->
 <div id="appointment_notes_display"></div>
 
@@ -147,8 +151,107 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<h2>Hospital Stays</h2>
-<!--NEW GRID-->
+        <h2><i class="fa fa-hospital-o" aria-hidden="true"></i> Hospital Stays</h2>
+        <!--NEW GRID-->
+
+        <div id="hospital_stay_display"></div>
+
+        <script id="hospital_stay_template" type="text/x-handlebars-template">
+            <table class="table table-striped">
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                    <th>Hospital Name</th>
+                    <th>Doctor/Specialist</th>
+                    <th>Notes</th>
+                </tr>
+                {{#each .}}
+                <tr class="med_row">
+                    <td>{{date}}</td>
+                    <td>{{time}}</td>
+                    <td>{{reason}}</td>
+                    <td>{{hospital_name}}</td>
+                    <td>{{doctor}}</td>
+                    <td><i class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="modal" data-target="#hospital_stay_modal" data-id={{id}}></i></td>
+                </tr>
+                {{/each}}
+            </table>
+        </script>
+        <button class="button" data-toggle="modal" data-target="#addHospitalStayModal">Add Hospital Stay <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
+
+        <script>
+
+            var hospitalstay = [
+                {
+                    "id": "0",
+                    "current": "false",
+                    "date": "09/08/16",
+                    "time": "2:00PM",
+                    "reason": "bone marrow transplant",
+                    "hospital_name": "UPMC Mercy",
+                    "doctor": "Dr. Cray",
+                    "hospitalNotes": "will keep for observation",
+                },
+                {
+                    "id": "1",
+                    "current": "true",
+                    "date": "01/25/17",
+                    "time": "09:00AM",
+                    "reason": "broken leg",
+                    "hospital_name": "West Penn",
+                    "doctor": "Dr. Saturn",
+                    "hospitalNotes": "check back after 4 weeks for physcial therapy",
+                }];
+
+            //Modular to show full medication info
+            $().ready(function () {
+                var source = $("#hospital_stay_template").html();
+                var template = Handlebars.compile(source);
+                var html = template(hospitalstay);
+                $("#hospital_stay_display").html(html);
+                $('i').click(function (e) {
+                    idd = $(e.target).data("id");
+                    //console.log(medications[0].name_brand);
+                    if (idd in hospitalstay) {
+                        $('#hospitalNotes').html(hospitalstay[idd].hospitalNotes);
+                    }
+                })
+            });
+
+
+        </script>
+
+    <!--Modal for more info-->
+    <div class="modal fade" id="addHospitalStayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Hospital Stay</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- <hr /> -->
+                    <form>
+                        Date: <input class="input date_time" type="date" name="Date" placeholder="Date">
+                        Time: <input class="input date_time" type="time" name="Time" placeholder="Time"><br><br />
+                        <input class="input" type="text" name="Reason for Admission" placeholder="Reason for Admission">
+                        <input class="input" type="text" name="Hospital Information" placeholder="Hospital Information">
+                        <input class="input" type="text" name="Doctor / Surgeon" placeholder="Doctor / Surgeon">
+                        <input class="input" type="text" height="400px" name="What was discussed" placeholder="What was discussed">
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 
 <div id="hospital_stay_display"></div>
 
@@ -176,45 +279,48 @@
 </script>
 <button class="button" data-toggle="modal" data-target="#addHospitalStayModal">Add Hospital Stay <i class="fa fa-plus" aria-hidden="true"></i></button><br /><br />
 
-<script>
 
-    var hospitalstay = [
-        {
-            "id": "0",
-            "current": "false",
-            "date": "09/08/16",
-            "time": "2:00PM",
-            "reason": "bone marrow transplant",
-            "hospital_name": "UPMC Mercy",
-            "doctor": "Dr. Cray",
-            "hospitalNotes": "will keep for observation",
-        },
-        {
-            "id": "1",
-            "current": "true",
-            "date": "01/25/17",
-            "time": "09:00AM",
-            "reason": "broken leg",
-            "hospital_name": "West Penn",
-            "doctor": "Dr. Saturn",
-            "hospitalNotes": "check back after 4 weeks for physcial therapy",
-        }];
+<div class="ppcc_container">
+    <h2><i class="fa fa-ambulance" aria-hidden="true"></i> ER Visit</h2>
+    <!--NEW GRID-->
+    <script>
+            var hospitalstay = [
+                {
+                    "id": "0",
+                    "current": "false",
+                    "date": "09/08/16",
+                    "time": "2:00PM",
+                    "reason": "bone marrow transplant",
+                    "hospital_name": "UPMC Mercy",
+                    "doctor": "Dr. Cray",
+                    "hospitalNotes": "will keep for observation",
+                },
+                {
+                    "id": "1",
+                    "current": "true",
+                    "date": "01/25/17",
+                    "time": "09:00AM",
+                    "reason": "broken leg",
+                    "hospital_name": "West Penn",
+                    "doctor": "Dr. Saturn",
+                    "hospitalNotes": "check back after 4 weeks for physcial therapy",
+                }];
 
-    //Modular to show full medication info
-    $().ready(function () {
-        var source = $("#hospital_stay_template").html();
-        var template = Handlebars.compile(source);
-        var html = template(hospitalstay);
-        $("#hospital_stay_display").html(html);
-        $('i').click(function (e) {
-            idd = $(e.target).data("id");
-            //console.log(medications[0].name_brand);
-            if (idd in hospitalstay) {
-                $('#hospitalNotes').html(hospitalstay[idd].hospitalNotes);
-            }
-        })
-    });
-</script>
+            //Modular to show full medication info
+            $().ready(function () {
+                var source = $("#hospital_stay_template").html();
+                var template = Handlebars.compile(source);
+                var html = template(hospitalstay);
+                $("#hospital_stay_display").html(html);
+                $('i').click(function (e) {
+                    idd = $(e.target).data("id");
+                    //console.log(medications[0].name_brand);
+                    if (idd in hospitalstay) {
+                        $('#hospitalNotes').html(hospitalstay[idd].hospitalNotes);
+                    }
+                })
+            });
+    </script>
 
 <!--Modal for more info-->
 <div class="modal fade" id="addHospitalStayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
